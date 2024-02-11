@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="book">
+      <img class="cover" src="cover.jpg">
+      <img class="bottom" src="bottom.jpg">
+      <div class="pic">
+        <img id="id1" src="3.jpg">
+        <div id="text1" class="text">
+          <div class="bold">Bidding Farewell at Yellow Crane Tower to Meng Haoran Heading to Guangling </div>
+          <div>By：Li Bai</div>
+          <div>Old friend bids farewell to me at Yellow Crane Tower.</div>
+          <div>In scenic third month, he heads down to Yangzhou.</div>
+          <div>The lone sail vanishes at the end of faraway blue sky.</div>
+          <div>Only surging Yangtze merging with horizon is seen.</div>
+        </div>
+      </div>
+    </div>
+    <div class="book">
+      <img class="cover" src="cover.jpg">
+      <img class="bottom" src="bottom.jpg">
+      <div class="pic">
+        <img id="id2" src="4.jpg">
+        <div id="text2" class="text">
+          <div class="bold">Autumn Thoughts （to the tune of Tian Jing Sha）</div>
+          <div>By Ma Zhiyuan</div>
+          <div>Tr. Qin Dachuan</div>
+          <div>Withered vines, old trees, crows at dusk;</div>
+          <div>A small bridge, flowing water and some huts.</div>
+          <div>Across the lean horse on an age-old path</div>
+          <div>The chilly west wind blows;</div>
+          <div>In the setting sun,</div>
+          <div>A heart-broken man a world away from home.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow" style="left: 50px;">
+    <a href="index.html">
+      <img src="arrow_left.png">
+    </a>
+    <span>Prev page</span>
+  </div>
+
+  <script>
+    function bindClick(index) {
+      document.querySelector('#id' + index).addEventListener('click', e => {
+        e.target.style.opacity = 0
+        setTimeout(() => {
+
+          const lines = document.querySelectorAll(`#text${index} div`)
+          for (let i = 0; i < lines.length; i++) {
+            lines[i].style.opacity = 1
+            lines[i].style.transitionDelay = i * 1 + 's'
+          }
+        }, 1000)
+      })
+    }
+    bindClick(1)
+    bindClick(2)
+  </script>
+</body>
+
+</html>

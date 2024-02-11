@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="book">
+      <img class="cover" src="cover.jpg">
+      <img class="bottom" src="bottom.jpg">
+      <div class="pic">
+        <img id="id1" src="1.jpg">
+        <div id="text1" class="text">
+          <div class="bold">By the River at Dusk</div>
+          <div>By: Bai Juyi</div>
+          <div>The river is paved with a belt of rosy hue</div>
+          <div>that is cast by the sunset glow,</div>
+          <div>turning half of the water surface red</div>
+          <div>while leaving the other half green and cold.</div>
+          <div>On this lovely night of September the third,</div>
+          <div>the crescent moon looks like a bow</div>
+          <div>and dew-drops glisten like pearls.</div>
+        </div>
+      </div>
+    </div>
+    <div class="book">
+      <img class="cover" src="cover.jpg">
+      <img class="bottom" src="bottom.jpg">
+      <div class="pic">
+        <img id="id2" src="2.jpg">
+        <div id="text2" class="text">
+          <div class="bold">Moored on River Qinhuai</div>
+          <div>By：Du Mu</div>
+          <div>Cold river with sand bars veiled in misty moonlight, </div>
+          <div>I moor on River Qinhuai near wineshops at night.</div>
+          <div>The songstress knowing not the grief of conquered land, </div>
+          <div>Still sings the song composed by a captive king's hand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <span>Next page</span>
+    <a href="page2.html">
+      <img src="arrow_right.png">
+    </a>
+  </div>
+
+  <script>
+    function bindClick(index) {
+      document.querySelector('#id' + index).addEventListener('click', e => {
+        e.target.style.opacity = 0
+        setTimeout(() => {
+
+          const lines = document.querySelectorAll(`#text${index} div`)
+          for (let i = 0; i < lines.length; i++) {
+            lines[i].style.opacity = 1
+            lines[i].style.transitionDelay = i * 1 + 's'
+          }
+        }, 1000)
+      })
+    }
+    bindClick(1)
+    bindClick(2)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+:root {
+    --h: 60vh;
+    --w: calc(var(--h) * 0.7324)
+}
+
+@font-face {
+    font-family: "ProtestRevolution";
+    src: url("./ProtestRevolution-Regular.ttf") format("truetype");
+}
+
+body {
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'ProtestRevolution';
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20vh;
+}
+
+.book {
+    perspective: 1000px;
+    position: relative;
+}
+
+.cover {
+    z-index: 100;
+    height: var(--h);
+    width: var(--w);
+
+    position: absolute;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: all .8s ease;
+}
+
+.pic {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+
+    height: var(--h);
+    width: var(--w);
+
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pic img {
+    width: 75%;
+    transition: all 1s ease;
+    position: absolute;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.bottom {
+    position: relative;
+    z-index: 1;
+    height: var(--h);
+    width: var(--w);
+}
+
+.book:hover .cover {
+    transform: rotateY(-100deg);
+}
+
+
+.arrow {
+    height: 70px;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.arrow img {
+    width: 120px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.arrow span {
+    color: rgb(185 162 129);
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.text {
+    width: 80%;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.text .bold {
+    font-size: 20px;
+}
+
+.text div {
+    transition: all 0.7s ease-in-out;
+    opacity: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
